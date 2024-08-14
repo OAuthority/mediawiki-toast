@@ -1,0 +1,35 @@
+.mw-toast-notification-container {
+	position: absolute;
+	width: 15em;
+	margin: 4rem;
+	z-index: 9999;
+
+	.mw-toast-notification {
+		padding: 1em;
+		border: 1px solid black;
+		width: inherit;
+		display: flex;
+		line-height: 1.5;
+		border-radius: 0;
+	}
+
+	&.top-right {
+		top: 0;
+		right: 0;
+	}
+
+	&.bottom-right {
+		bottom: 0;
+		right: 0;
+	}
+
+	&.top-left {
+		top: 0;
+		left: 0;
+	}
+
+	&.bottom-left {
+		bottom: 0;
+		left: 0;
+	}
+}

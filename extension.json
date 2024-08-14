@@ -15,7 +15,9 @@
 			"localBasePath": "resources/ext.mediawiki.toast",
 			"remoteExtPath": "ToastNotifications/resources/ext.mediawiki.toast",
 			"dependencies": [],
-			"styles": [],
+			"styles": [
+				"mediawiki-toast.less"
+			],
 			"packageFiles": [
 				"mediawiki-toast.js"
 			],
