@@ -1,0 +1,29 @@
+{
+	"name": "Toast Notifications",
+	"author": [
+		"Original Authority"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Toast Notifications",
+	"descriptionmsg": "toastnotifications-desc",
+	"license-name": "GPL-3.0-or-later",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.39.0"
+	},
+	"ResourceModules": {
+		"ext.mediawiki.toast": {
+			"localBasePath": "resources/ext.mediawiki.toast",
+			"remoteExtPath": "ToastNotifications/resources/ext.mediawiki.toast",
+			"dependencies": [],
+			"styles": [],
+			"packageFiles": [
+				"mediawiki-toast.js"
+			],
+			"templates": {
+				"notice.mustache": "templates/notice.mustache"
+			},
+			"messages": []
+		}
+	},
+	"manifest_version": 2
+}
