@@ -1,6 +1,10 @@
 ( function () {
 	'use strict';
 
+	const check = '<svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M5 13L9 17L19 7" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+	const notice = '<svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 9C9 5.49997 14.5 5.5 14.5 9C14.5 11.5 12 10.9999 12 13.9999" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 18.01L12.01 17.9989" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+	const error = '<svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M9.17218 14.8284L12.0006 12M14.829 9.17157L12.0006 12M12.0006 12L9.17218 9.17157M12.0006 12L14.829 14.8284" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+
 	/**
 	 * @type {{
 	 *   duration: number,
@@ -9,6 +13,7 @@
 	 *   position: string,
 	 *   type: string,
 	 *   autoClose: boolean
+	 *   icon: string
 	 * }}
 	 */
 	Toast.defaults = {
@@ -17,7 +22,20 @@
 		duration: 3000,
 		position: "top-right",
 		showClose: true,
-		type: "notice"
+		type: "notice",
+		icon: notice
+	};
+
+	Toast.types = {
+		error: {
+			icon: error
+		},
+		notice: {
+			icon: notice
+		},
+		success: {
+			icon: check
+		}
 	};
 
 	/**
@@ -27,6 +45,7 @@
 	 * @constructor
 	 */
 	function Toast( message, options = {} ) {
+
 		this.options = {
 			autoClose: options.autoClose ?? Toast.defaults.autoClose,
 			colourful: options.colourful ?? Toast.defaults.colourful,
@@ -34,7 +53,8 @@
 			position: options.position ?? Toast.defaults.position,
 			showClose: options.showClose ?? Toast.defaults.showClose,
 			type: options.type ?? Toast.defaults.type,
-			message: message ?? 'This is a toast notification!'
+			message: message ?? 'This is a toast notification!',
+			icon: Toast.types[options.type]?.icon ?? Toast.defaults.icon
 		};
 	}
 

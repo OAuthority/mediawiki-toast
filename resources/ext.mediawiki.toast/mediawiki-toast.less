@@ -5,12 +5,35 @@
 	z-index: 9999;
 
 	.mw-toast-notification {
-		padding: 1em;
-		border: 1px solid black;
+		padding: 0.7em;
+		border: 1px solid grey;
 		width: inherit;
 		display: flex;
+		align-items: center;
 		line-height: 1.5;
-		border-radius: 0;
+		border-radius: 3px;
+		justify-content: space-between;
+		background: #fff;
+
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.5rem;
+		}
+	}
+
+
+	.mw-toast-notification__content {
+		flex: 1;
+		margin-left: 0.5rem;
+	}
+
+	.mw-toast-notification__close-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 1rem;
 	}
 
 	&.top-right {
