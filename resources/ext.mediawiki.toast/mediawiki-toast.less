@@ -5,6 +5,7 @@
 	z-index: 9999;
 
 	.mw-toast-notification {
+		position: relative;
 		padding: 0.7em;
 		border: 1px solid grey;
 		width: inherit;
@@ -54,5 +55,9 @@
 	&.bottom-left {
 		bottom: 0;
 		left: 0;
+	}
+
+	.mw-toast-notification:not(:last-of-type) {
+		margin-bottom: 0.5rem;
 	}
 }
