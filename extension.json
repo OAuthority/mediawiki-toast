@@ -10,6 +10,11 @@
 	"requires": {
 		"MediaWiki": ">= 1.39.0"
 	},
+	"MessagesDirs": {
+		"ToastNotifications": [
+			"i18n"
+		]
+	},
 	"ResourceModules": {
 		"ext.mediawiki.toast": {
 			"localBasePath": "resources/ext.mediawiki.toast",
