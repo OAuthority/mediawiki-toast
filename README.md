@@ -1,4 +1,7 @@
-**Toast** does just what it says on the tin - provides modern Toast notifications for MediaWiki; it is intended to be a replacement for `mw.notify` which looks like it was designed in 2004. 
+# MediaWiki Toast
+![Built with JavaScript](https://img.shields.io/badge/Built%20with-JavaScript-red?style=for-the-badge&logo=javascript)
+
+**Toast** does just what it says on the tin - provides modern Toast notifications for MediaWiki; it is intended to be a replacement for `mw.notify` which looks like it was designed in 2004.
 
 # Usage
 
