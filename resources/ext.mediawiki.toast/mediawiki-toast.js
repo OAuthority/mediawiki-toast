@@ -95,7 +95,6 @@
 	Toast.prototype.hide = function () {
 		if ( this.$element ) {
 			const slideDirection = getSlideDirection( this.options.position );
-			console.log( slideDirection );
 			const animationCSS = {};
 			animationCSS[ slideDirection ] = '-100%';
 
