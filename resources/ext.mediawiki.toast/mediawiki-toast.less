@@ -6,28 +6,39 @@
 
 	.mw-toast-notification {
 		position: relative;
-		padding: 0.7em;
 		border: 1px solid grey;
 		width: inherit;
 		display: flex;
-		align-items: center;
+		align-items: stretch;
 		line-height: 1.5;
 		border-radius: 3px;
 		justify-content: space-between;
 		background: #fff;
 
-		&__icon {
+		&__icon-wrapper {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			width: 2.5rem;
 		}
-	}
 
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			padding: 0.7em;
+		}
+	}
 
 	.mw-toast-notification__content {
 		flex: 1;
 		margin-left: 0.5rem;
+		padding: 0.7em 0;
+		line-height: 1.4;
+		font-size: 14px;
+		align-content: center;
 	}
 
 	.mw-toast-notification__close-icon {
@@ -35,6 +46,21 @@
 		align-items: center;
 		justify-content: center;
 		margin-left: 1rem;
+		padding-right: 0.7em;
+	}
+
+	.mw-toast-notification__icon-wrapper {
+		&.success {
+			background: lightgreen;
+		}
+
+		&.error {
+			background: crimson;
+		}
+
+		&.notice {
+			background: orange;
+		}
 	}
 
 	&.top-right {
