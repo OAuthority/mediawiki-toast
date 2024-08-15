@@ -69,14 +69,14 @@
 
 		this.$element = $( html );
 
-		let container = $( '.mw-toast-notification-container.' + this.options.position );
+		let $container = $( '.mw-toast-notification-container.' + this.options.position );
 
-		if ( !container.length ) {
-			container = $( '<div class="mw-toast-notification-container ' + this.options.position + '"></div>' );
-			$( 'body' ).append( container );
+		if ( !$container.length ) {
+			$container = $( '<div class="mw-toast-notification-container ' + this.options.position + '"></div>' );
+			$( 'body' ).append( $container );
 		}
 
-		container.append( this.$element );
+		$container.append( this.$element );
 
 		if ( this.options.autoClose ) {
 			setTimeout( () => {
@@ -119,9 +119,9 @@
 	 * @param {Toast} toast
 	 */
 	function initCloseNotif( toast ) {
-		const close = toast.$element.find( '.mw-toast-notification__close' );
+		const $close = toast.$element.find( '.mw-toast-notification__close' );
 
-		close.on( 'click', function () {
+		$close.on( 'click', function () {
 			toast.hide();
 		} );
 	}
