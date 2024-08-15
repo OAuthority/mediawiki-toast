@@ -1,4 +1,4 @@
-( function (  ) {
+( function () {
 	'use strict';
 
 	/**
@@ -18,7 +18,7 @@
 		position: "top-right",
 		showClose: true,
 		type: "notice"
-	}
+	};
 
 	/**
 	 * Setup all of our options and their defaults
@@ -38,12 +38,13 @@
 		};
 	}
 
+
 	/**
 	 * Actually show the notification, with optional extras
-	 * Usage: new Toast( 'This is a toast!', { type: "notice" }  ).show(  )
+	 * Usage: new Toast( 'This is a toast!', { type: "notice" } ).show(  )
 	 */
-	Toast.prototype.show = function(  ) {
-		const template = getTemplate(  );
+	Toast.prototype.show = function() {
+		const template = getTemplate();
 		const html = template.render( this.options );
 
 		this.$element = $( html );
@@ -57,21 +58,21 @@
 
 		container.append( this.$element );
 
+		if (  this.options.autoClose  ) {
+			setTimeout( () => {
+				this.hide();
+			}, this.options.duration );
+		}
+
 		if (  this.options.showClose ) {
 			initCloseNotif( this );
 		}
-
-		if (  this.options.autoClose  ) {
-			setTimeout( ( ) => {
-				this.hide( );
-			}, this.options.duration );
-		}
-	}
+	};
 
 	/**
 	 * Hide the toast ( remove it from the DOM )
 	 */
-	Toast.prototype.hide = function(  ) {
+	Toast.prototype.hide = function() {
 		if ( this.$element ) {
 			const slideDirection = getSlideDirection( this.options.position );
 			const animationCSS = {};
@@ -99,7 +100,6 @@
 		const close = toast.$element.find( '.mw-toast-notification__close' );
 
 		close.on('click', function( e ) {
-			console.log( 'clicked close' );
 			toast.hide();
 		} );
 	}
