@@ -43,6 +43,11 @@
 	 *
 	 * @param {string} message - the message to display in the notification
 	 * @param {Object} options - the options to pass
+	 * @param { Boolean } options.autoClose whether to automatically close the notification
+	 * @param { Number } options.duration the number of seconds (thousands) that the toast should be displayed for
+	 * @param { String } options.position the position of the toast on the screen
+	 * @param { Boolean } options.showClose whether or not to show the close button
+	 * @param { String } options.type the type of notification (notice, error, success)
 	 * @constructor
 	 */
 	function Toast( message, options = {} ) {
