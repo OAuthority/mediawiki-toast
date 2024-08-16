@@ -28,3 +28,24 @@ new Toast( 'This is a toast notification', {
 } );
 ```
 
+## Promises
+`mw.notify` lacks the ability to give updates about the status of a `promise`, which is a useful indicator when working with API calls etc.
+This extension provides that functionality, and can be used as follows:
+```js
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        Math.random() > 0.5 ? resolve('Promis resolved') : reject('Promise failed');
+    }, 2000);
+});
+
+new Toast.promise(
+	myPromise,
+  {
+	  successMessage: "Promise resolved successfully",
+    errorMessage: "The promise failed to resolve",
+    pendingMessage: "Saving your changes..."
+  }
+);
+```
+The above will show a toast notification in the 'pending' state with the message defined in `pendingMessage`. This will be removed
+and replaced with the success or error toast notification in the event that the promise is resolved or rejected.

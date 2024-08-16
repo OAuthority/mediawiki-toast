@@ -105,6 +105,57 @@
 	};
 
 	/**
+	 * A special function that allows us to show a pending state when a promise is taking place
+	 * and then either show a success when the promise resolves, or show an error if the promise rejects
+	 * @param {Promise} promise the promise that we are monitoring
+	 * @param {Object} options an object of options to pass
+	 * @param {String} options.pendingMessage the message to show whilst the promise is pending
+	 * @param {String} options.successMessage the message to show when the promise resolves
+	 * @param {String} options.errorMessage the message to show when the promise rejects
+	 */
+	Toast.promise = function ( promise, options ) {
+		const pendingToast = new Toast(
+			options.pendingMessage ?? 'Loading...',
+			{
+				type: notice,
+				autoClose: false,
+				showClose: false,
+				...options
+			}
+		);
+
+		pendingToast.show();
+
+		promise.then(
+			( result ) => {
+				pendingToast.hide();
+
+				new Toast(
+					options.successMessage,
+					{
+						type: 'success',
+					}
+				).show();
+
+				return result;
+			},
+			( error ) => {
+				pendingToast.hide();
+
+				new Toast(
+					options.errorMessage,
+					{
+						type: 'error'
+					}
+				).show();
+				throw error;
+			}
+		);
+
+		return promise;
+	};
+
+	/**
 	 * Get the mustache template; MediaWiki will handle this internally, so just retrieve it
 	 *
 	 * @return {*}
