@@ -34,7 +34,7 @@ This extension provides that functionality, and can be used as follows:
 ```js
 const myPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        Math.random() > 0.5 ? resolve('Promis resolved') : reject('Promise failed');
+        Math.random() > 0.5 ? resolve('Promise resolved') : reject('Promise failed');
     }, 2000);
 });
 
